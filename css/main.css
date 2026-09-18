@@ -15,7 +15,7 @@ body {
   align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--dark-color);
+  background-color: #fffaf0;
   overflow: hidden;
   perspective: 1000px;
 }
@@ -23,7 +23,7 @@ body {
 #lyrics {
   font-size: 28px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: white;
+  color: #5c4938;
   position: absolute;
   margin-bottom: 20%;
   z-index: 1;
@@ -42,7 +42,7 @@ body {
 .titulo {
   margin-bottom: 180px;
   font-family: "Arial Narrow", Arial, sans-serif;
-  color: yellow;
+  color: #c99a20;
   position: absolute;
   font-weight: bold;
   letter-spacing: 10px;
@@ -68,38 +68,19 @@ body {
   width: 100%;
   height: 100%;
   filter: blur(0.1vmin);
-  background-image: radial-gradient(
-      ellipse at top,
-      transparent 0%,
-      var(--dark-color)
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(246, 211, 101, 0.22),
+      transparent 38%
     ),
     radial-gradient(
-      ellipse at bottom,
-      var(--dark-color),
-      rgba(145, 233, 255, 0.2)
+      circle at bottom right,
+      rgba(226, 186, 75, 0.18),
+      transparent 38%
     ),
-    repeating-linear-gradient(
-      220deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    repeating-linear-gradient(
-      189deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    repeating-linear-gradient(
-      148deg,
-      rgb(0, 0, 0) 0px,
-      rgb(0, 0, 0) 19px,
-      transparent 19px,
-      transparent 22px
-    ),
-    linear-gradient(90deg, rgb(0, 255, 250), rgb(240, 240, 240));
+    #fffaf0;
 }
 
 .flowers {
@@ -1656,4 +1637,638 @@ h1 {
   }
 }
 
-/* Agregar más estilos según sea necesario */
+/* =========================================
+   NUEVA COMPOSICIÓN: CARTA + RAMO
+========================================= */
+
+/* Carta de la izquierda */
+.letter-card {
+  position: absolute;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%) rotate(-2deg);
+
+  width: min(420px, 38vw);
+  padding: 50px 45px;
+
+  background: rgba(255, 253, 245, 0.96);
+
+  border: 1px solid rgba(194, 155, 57, 0.35);
+  border-radius: 6px;
+
+  box-shadow:
+    0 20px 50px rgba(91, 67, 33, 0.12),
+    0 3px 8px rgba(91, 67, 33, 0.08);
+
+  z-index: 200;
+
+  text-align: center;
+
+  animation: showLetter 1.8s ease forwards;
+}
+
+.letter-small {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  color: #c39427;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.letter-card h1 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(1.7rem, 2.5vw, 2.5rem);
+
+  line-height: 1.25;
+
+  font-weight: 500;
+
+  color: #554334;
+
+  margin: 0;
+}
+
+.letter-line {
+  width: 50px;
+  height: 1px;
+
+  background: #d2a632;
+
+  margin: 28px auto;
+}
+
+.letter-text {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+
+  color: #806d5c;
+}
+
+.letter-heart {
+  display: block;
+
+  margin-top: 28px;
+
+  font-size: 1.5rem;
+
+  color: #d6a51e;
+}
+
+
+/* Mover las flores hacia la derecha */
+.flowers {
+  position: absolute;
+
+  right: 25%;
+  bottom: 0;
+
+  transform: scale(0.85);
+}
+
+
+/* Aparición de la carta */
+@keyframes showLetter {
+  from {
+    opacity: 0;
+    transform: translateY(-45%) rotate(-2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-50%) rotate(-2deg);
+  }
+}
+
+
+/* Letras de la canción */
+#lyrics {
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90%;
+
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  color: #9b731c;
+
+  z-index: 300;
+}
+
+
+/* CELULAR */
+@media screen and (max-width: 700px) {
+
+  .letter-card {
+    left: 50%;
+    top: 8%;
+
+    transform: translateX(-50%) rotate(-1deg);
+
+    width: 88%;
+
+    padding: 25px 22px;
+  }
+
+  .letter-card h1 {
+    font-size: 1.45rem;
+  }
+
+  .letter-text {
+    font-size: 0.9rem;
+  }
+
+  .flowers {
+    right: 50%;
+    bottom: 4%;
+
+    transform: translateX(50%) scale(0.72);
+  }
+
+  #lyrics {
+    font-size: 12px;
+    bottom: 10px;
+  }
+
+  @keyframes showLetter {
+
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(15px) rotate(-1deg);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) rotate(-1deg);
+    }
+  }
+}
+
+/* =========================================
+   RAMO FINAL
+========================================= */
+
+.flowers {
+  position: absolute;
+  right: 5vw;
+  bottom: -2vmin;
+
+  width: 75vmin;
+  height: 88vmin;
+
+  transform: scale(0.88);
+  transform-origin: bottom center;
+}
+
+
+/* -----------------------------------------
+   DISTRIBUCIÓN DE LAS 8 FLORES
+----------------------------------------- */
+
+.flower {
+  transform-origin: bottom center;
+  z-index: 10;
+}
+
+/* flor superior central */
+.flower--1 {
+  left: 35vmin;
+  bottom: 8vmin;
+  z-index: 15;
+}
+
+.flower--1 .flower__line {
+  height: 58vmin;
+}
+
+
+/* superior derecha */
+.flower--2 {
+  left: 48vmin;
+  bottom: 8vmin;
+  z-index: 13;
+}
+
+.flower--2 .flower__line {
+  height: 49vmin;
+}
+
+
+/* superior izquierda */
+.flower--3 {
+  left: 23vmin;
+  bottom: 8vmin;
+  z-index: 13;
+}
+
+.flower--3 .flower__line {
+  height: 49vmin;
+}
+
+
+/* izquierda media */
+.flower--4 {
+  left: 14vmin;
+  bottom: 6vmin;
+
+  animation: bouquet-flower-left 4.5s ease-in-out infinite;
+
+  z-index: 11;
+}
+
+.flower--4 .flower__line {
+  height: 40vmin;
+}
+
+
+/* derecha media */
+.flower--5 {
+  left: 56vmin;
+  bottom: 6vmin;
+
+  animation: bouquet-flower-right 4.5s ease-in-out infinite;
+
+  z-index: 11;
+}
+
+.flower--5 .flower__line {
+  height: 41vmin;
+}
+
+
+/* extremo izquierdo */
+.flower--6 {
+  left: 7vmin;
+  bottom: 5vmin;
+
+  animation: bouquet-flower-far-left 4.8s ease-in-out infinite;
+
+  z-index: 9;
+}
+
+.flower--6 .flower__line {
+  height: 32vmin;
+}
+
+
+/* extremo derecho */
+.flower--7 {
+  left: 64vmin;
+  bottom: 5vmin;
+
+  animation: bouquet-flower-far-right 4.8s ease-in-out infinite;
+
+  z-index: 9;
+}
+
+.flower--7 .flower__line {
+  height: 33vmin;
+}
+
+
+/* flor central baja */
+.flower--8 {
+  left: 36vmin;
+  bottom: 7vmin;
+
+  animation: bouquet-flower-center 4.2s ease-in-out infinite;
+
+  z-index: 16;
+}
+
+.flower--8 .flower__line {
+  height: 38vmin;
+}
+
+
+/* -----------------------------------------
+   PAPEL DEL RAMO
+----------------------------------------- */
+
+.bouquet-wrap {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 58vmin;
+  height: 39vmin;
+
+  z-index: 30;
+
+  pointer-events: none;
+}
+
+
+.bouquet-paper {
+  position: absolute;
+
+  bottom: 2vmin;
+
+  border: 1px solid rgba(190, 146, 70, 0.25);
+
+  box-shadow:
+    inset 0 0 25px rgba(255,255,255,0.45),
+    0 10px 30px rgba(112, 80, 31, 0.12);
+}
+
+
+/* papel izquierdo */
+.bouquet-paper-left {
+  left: 3vmin;
+
+  width: 31vmin;
+  height: 34vmin;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 246, 211, 0.82),
+      rgba(222, 181, 104, 0.65)
+    );
+
+  transform: rotate(-14deg);
+
+  clip-path: polygon(
+    0 5%,
+    100% 18%,
+    70% 100%,
+    28% 100%
+  );
+}
+
+
+/* papel derecho */
+.bouquet-paper-right {
+  right: 3vmin;
+
+  width: 31vmin;
+  height: 34vmin;
+
+  background:
+    linear-gradient(
+      225deg,
+      rgba(255, 246, 211, 0.82),
+      rgba(222, 181, 104, 0.65)
+    );
+
+  transform: rotate(14deg);
+
+  clip-path: polygon(
+    0 18%,
+    100% 5%,
+    72% 100%,
+    30% 100%
+  );
+}
+
+
+/* papel central */
+.bouquet-paper-center {
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 29vmin;
+  height: 32vmin;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 238, 193, 0.83),
+      rgba(218, 171, 84, 0.78)
+    );
+
+  clip-path: polygon(
+    5% 0,
+    95% 0,
+    67% 100%,
+    33% 100%
+  );
+}
+
+
+/* -----------------------------------------
+   LAZO AMARILLO
+----------------------------------------- */
+
+.bouquet-bow {
+  position: absolute;
+
+  left: 50%;
+  bottom: 3vmin;
+
+  transform: translateX(-50%);
+
+  width: 32vmin;
+  height: 18vmin;
+
+  z-index: 50;
+}
+
+
+.bow-left,
+.bow-right {
+  position: absolute;
+
+  top: 2vmin;
+
+  width: 13vmin;
+  height: 9vmin;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffe378,
+      #e5ad22 65%,
+      #c78b0c
+    );
+
+  box-shadow:
+    inset 0 0 1.5vmin rgba(255,255,255,0.45),
+    0 4px 10px rgba(120, 80, 10, 0.14);
+}
+
+
+.bow-left {
+  left: 2vmin;
+
+  border-radius:
+    80% 25% 65% 35%;
+
+  transform: rotate(-15deg);
+}
+
+
+.bow-right {
+  right: 2vmin;
+
+  border-radius:
+    25% 80% 35% 65%;
+
+  transform: rotate(15deg);
+}
+
+
+.bow-center {
+  position: absolute;
+
+  left: 50%;
+  top: 3vmin;
+
+  transform: translateX(-50%);
+
+  width: 7vmin;
+  height: 7vmin;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #ffe984,
+      #dda719 65%,
+      #ba7906
+    );
+
+  z-index: 5;
+}
+
+
+.ribbon {
+  position: absolute;
+
+  top: 8vmin;
+
+  width: 6vmin;
+  height: 11vmin;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #e9b82e,
+      #c88b0d
+    );
+}
+
+
+.ribbon-left {
+  left: 10vmin;
+
+  transform: rotate(12deg);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    78% 100%,
+    50% 80%,
+    22% 100%
+  );
+}
+
+
+.ribbon-right {
+  right: 10vmin;
+
+  transform: rotate(-12deg);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    78% 100%,
+    50% 80%,
+    22% 100%
+  );
+}
+
+
+/* -----------------------------------------
+   MOVIMIENTO DE LAS FLORES NUEVAS
+----------------------------------------- */
+
+@keyframes bouquet-flower-left {
+  0%, 100% {
+    transform: rotate(-27deg) scale(0.88);
+  }
+
+  50% {
+    transform: rotate(-30deg) scale(0.88);
+  }
+}
+
+
+@keyframes bouquet-flower-right {
+  0%, 100% {
+    transform: rotate(27deg) scale(0.88);
+  }
+
+  50% {
+    transform: rotate(30deg) scale(0.88);
+  }
+}
+
+
+@keyframes bouquet-flower-far-left {
+  0%, 100% {
+    transform: rotate(-42deg) scale(0.78);
+  }
+
+  50% {
+    transform: rotate(-46deg) scale(0.78);
+  }
+}
+
+
+@keyframes bouquet-flower-far-right {
+  0%, 100% {
+    transform: rotate(42deg) scale(0.78);
+  }
+
+  50% {
+    transform: rotate(46deg) scale(0.78);
+  }
+}
+
+
+@keyframes bouquet-flower-center {
+  0%, 100% {
+    transform: rotate(3deg) scale(0.9);
+  }
+
+  50% {
+    transform: rotate(-2deg) scale(0.9);
+  }
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media screen and (max-width: 700px) {
+
+  .flowers {
+    right: 50%;
+    bottom: -5vmin;
+
+    transform:
+      translateX(50%)
+      scale(0.62);
+  }
+
+  .bouquet-wrap {
+    bottom: 0;
+  }
+}

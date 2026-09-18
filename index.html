@@ -5,27 +5,224 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/flowers.png" type="image/x-icon">
-    <title>Flowers</title>
+
+    <title>Para ti 💛</title>
 </head>
 
 <body>
-    <div class="greetings">
-        <span>H</span>
-        <span>o</span>
-        <span>l</span>
-        <span>a</span>
-        <span>!</span>
-    </div>
-    <div class="description">
-        <span>ESTE DETALLE ES PARA TI :)</span>
-    </div>
-    <div class="button">
-        <button class="botones">
-            <a href="flower.html" style="color: #fff;">CLICK AQUÍ</a>
+
+    <!-- =========================
+         ROMPECABEZAS
+    ========================== -->
+    <main id="gameScreen" class="game-screen">
+
+        <section class="game-header">
+            <p class="small-title">ANTES DE TU REGALO...</p>
+
+            <h1>¿Cuánto recuerdas de nosotros? 💛</h1>
+
+            <p class="game-description">
+                Hay 12 piezas esperando por ti.
+                Cada recuerdo correcto desbloqueará una parte del rompecabezas.
+            </p>
+
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Rompecabezas</span>
+                    <span id="progressText">0 / 12</span>
+                </div>
+
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <button id="skipQuestions" class="skip-button">
+            Saltar preguntas
         </button>
+
+        <!-- ROMPECABEZAS 12 PIEZAS -->
+        <section class="puzzle" id="puzzle">
+
+            <button class="puzzle-piece" data-question="0">
+                <span class="lock">🔒</span>
+                <span class="piece-number">1</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="1">
+                <span class="lock">🔒</span>
+                <span class="piece-number">2</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="2">
+                <span class="lock">🔒</span>
+                <span class="piece-number">3</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="3">
+                <span class="lock">🔒</span>
+                <span class="piece-number">4</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="4">
+                <span class="lock">🔒</span>
+                <span class="piece-number">5</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="5">
+                <span class="lock">🔒</span>
+                <span class="piece-number">6</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="6">
+                <span class="lock">🔒</span>
+                <span class="piece-number">7</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="7">
+                <span class="lock">🔒</span>
+                <span class="piece-number">8</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="8">
+                <span class="lock">🔒</span>
+                <span class="piece-number">9</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="9">
+                <span class="lock">🔒</span>
+                <span class="piece-number">10</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="10">
+                <span class="lock">🔒</span>
+                <span class="piece-number">11</span>
+            </button>
+
+            <button class="puzzle-piece" data-question="11">
+                <span class="lock">🔒</span>
+                <span class="piece-number">12</span>
+            </button>
+
+        </section>
+
+        <p class="puzzle-help">
+            Toca una pieza para responder 💛
+        </p>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL DE PREGUNTAS
+    ========================== -->
+    <div id="questionModal" class="modal">
+
+        <div class="modal-card">
+
+            <button id="closeModal" class="close-modal" type="button">
+                ×
+            </button>
+
+            <div class="question-number">
+                PIEZA <span id="modalPieceNumber">1</span> DE 12
+            </div>
+
+            <div id="questionEmoji" class="question-emoji">
+                ❤️
+            </div>
+
+            <h2 id="questionText">
+                Pregunta
+            </h2>
+
+            <form id="answerForm">
+
+                <input
+                    id="answerInput"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Escribe tu respuesta..."
+                >
+
+                <button type="submit" class="answer-button">
+                    COMPROBAR
+                </button>
+
+            </form>
+
+            <p id="answerMessage" class="answer-message"></p>
+
+        </div>
+
     </div>
+
+
+    <!-- =========================
+         PORTADA FINAL
+    ========================== -->
+    <main id="rewardScreen" class="cover hidden">
+
+        <section class="content">
+
+            <p class="completed-message">
+                12 / 12 · LO RECORDASTE TODO 💛
+            </p>
+
+            <p class="date">
+                21 DE SEPTIEMBRE
+            </p>
+
+            <p class="for-you">
+                Para ti 💛
+            </p>
+
+            <h1>
+                Tengo algo para ti...
+            </h1>
+
+            <p class="message">
+                No soy muy bueno regalando flores por una pantalla,
+                así que decidí hacerlas yo mismo.
+            </p>
+
+            <a href="flower.html" class="envelope-link">
+
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter">
+                        <span>Para ti 💛</span>
+                    </div>
+
+                    <div class="envelope-left"></div>
+                    <div class="envelope-right"></div>
+                    <div class="envelope-front"></div>
+
+                    <div class="seal">
+                        🌻
+                    </div>
+
+                </div>
+
+                <span class="open-text">
+                    Toca para descubrirlo
+                </span>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script src="index.js"></script>
 
 </body>
 
