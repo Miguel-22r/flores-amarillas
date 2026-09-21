@@ -705,3 +705,7 @@ body {
 .skip-button:hover {
     background: #c89b27;
 }
+
+#skipQuestions {
+  display: none;
+}

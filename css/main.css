@@ -2272,3 +2272,102 @@ h1 {
     bottom: 0;
   }
 }
+
+/* =========================================
+   TÍTULO SOBRE EL RAMO
+========================================= */
+
+.bouquet-title {
+  position: absolute;
+
+  /* Coincide con la posición y ancho del ramo */
+  top: 5%;
+  right: 5vw;
+
+  width: 75vmin;
+
+  text-align: center;
+
+  z-index: 150;
+
+  opacity: 0;
+
+  animation: showBouquetTitle 1.8s ease 0.8s forwards;
+
+  pointer-events: none;
+}
+
+.bouquet-title h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 3vw, 3.3rem);
+  line-height: 1.2;
+  font-weight: 500;
+
+  color: #9b6815;
+
+  text-shadow:
+    0 2px 8px rgba(155, 104, 21, 0.08);
+}
+
+.bouquet-title__line {
+  display: block;
+
+  width: 55px;
+  height: 1px;
+
+  margin: 20px auto 16px;
+
+  background-color: #d2a632;
+}
+
+.bouquet-title p {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  line-height: 1.5;
+
+  color: #806d5c;
+}
+
+@keyframes showBouquetTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Título en celulares */
+@media screen and (max-width: 700px) {
+
+  .bouquet-title {
+    top: 43%;
+    right: 5%;
+
+    width: 90%;
+  }
+
+  .bouquet-title h2 {
+    font-size: 1.65rem;
+  }
+
+  .bouquet-title__line {
+    width: 40px;
+
+    margin: 12px auto 10px;
+  }
+
+  .bouquet-title p {
+    font-size: 0.95rem;
+  }
+}
